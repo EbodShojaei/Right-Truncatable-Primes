@@ -61,8 +61,7 @@ hash_table_t *hash_table_create(size_t table_size)
 // Helper function to add a new entry to the hashtable
 int hash_table_add(hash_table_t *ht, unsigned long long value)
 {
-    if (ht == NULL)
-        return 0;
+    if (ht == NULL) return 0;
     size_t index = hash_ull(value, ht->size);
     node_t *current = ht->buckets[index];
     while (current != NULL)
@@ -89,8 +88,7 @@ int hash_table_add(hash_table_t *ht, unsigned long long value)
 // Helper function to check if entry exists in hashtable
 int hash_table_contains(hash_table_t *ht, unsigned long long value)
 {
-    if (ht == NULL)
-        return 0;
+    if (ht == NULL) return 0;
     size_t index = hash_ull(value, ht->size);
     node_t *current = ht->buckets[index];
     while (current != NULL)
@@ -107,8 +105,7 @@ int hash_table_contains(hash_table_t *ht, unsigned long long value)
 // Helper function to clean-up hashtable from memory
 void hash_table_destroy(hash_table_t *ht)
 {
-    if (ht == NULL)
-        return;
+    if (ht == NULL) return;
     for (size_t i = 0; i < ht->size; ++i)
     {
         node_t *current = ht->buckets[i];
@@ -137,8 +134,7 @@ unsigned long long power_of_10(int exp)
 // Utility function to count the number of digits in a number
 int count_digits(unsigned long long num)
 {
-    if (num == 0)
-        return 1;
+    if (num == 0) return 1;
     int count = 0;
     unsigned long long temp = num;
     while (temp > 0)
@@ -272,8 +268,8 @@ int main(int argc, char *argv[])
     printf("Number of %d-digit right-truncatable primes: %d\n", digits, result);
 
     // Calculate total number of right-truncatable primes up to the specified number of digits
-    unsigned long long total_count = 0;
-    for (int i = 1; i <= digits; ++i)
+    unsigned long long total_count = result;
+    for (int i = 1; i < digits; ++i)
     {
         int count = count_right_trunc_primes(i);
         if (count < 0)
