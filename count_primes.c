@@ -24,16 +24,16 @@ typedef struct hash_table
     node_t **buckets;
 } hash_table_t;
 
-// Helper function to use the prime as a hash key
+// Helper function to use the prime as a hash key (Author's Note: vibe coded scaffolding was modified to use primes for better intended distribution. We would need to test this irl to know for sure tho)
 size_t hash_ull(unsigned long long key, size_t table_size)
 {
-    key = (~key) + (key << 21);             // key = (key << 21) - key - 1;
-    key = key ^ (key >> 24);
-    key = (key + (key << 3)) + (key << 8);  // key * 265
-    key = key ^ (key >> 14);
-    key = (key + (key << 2)) + (key << 4);  // key * 21
-    key = key ^ (key >> 28);
-    key = key + (key << 31);
+    key = (~key) + (key << 23); // Try prime shift :3
+    key = key ^ (key >> 7);
+    key = (key + (key << 4)) + (key << 6) + (key << 8);  // key * 337 (NOTE: this requires an extra operation compared to original but we get a better distribution with larger primes)
+    key = key ^ (key >> 13);
+    key = (key + (key << 2) + (key << 4)) + (key << 4);  // key * 37  (NOTE: this requires an extra operation compared to original but we get a better distribution with larger primes)
+    key = key ^ (key >> 19);
+    key = key + (key << 17);
     return key % table_size;
 }
 
