@@ -1,0 +1,4 @@
+primesieve/
+__temp__/
+.DS_STORE
+*.out
