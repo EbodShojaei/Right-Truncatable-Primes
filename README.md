@@ -74,28 +74,27 @@ To run the program, execute the compiled binary and provide the desired number o
 
 **Example:**
 
-To find the number of 3-digit right-truncatable primes:
+To find the number of 8-digit right-truncatable primes:
 
-    ./count_primes.out 3
+    ./count_primes.out 8
 
 Expected output (will list the primes first, then the count):
 
-    233
-    239
-    293
-    311
-    313
-    317
-    373
-    379
-    593
-    599
-    719
-    733
-    739
-    797
-    Number of 3-digit right-truncatable primes: 14
-    Total number of right-truncatable primes up to 3 digits: 27
+    ❯ ./count_primes.out 8
+    Number of 8 digit primes generated: 5761455
+    Number of 7 digit primes generated: 664579
+    Number of 6 digit primes generated: 78498
+    Number of 5 digit primes generated: 9592
+    Number of 4 digit primes generated: 1229
+    Number of 3 digit primes generated: 168
+    Number of 2 digit primes generated: 25
+    Number of 1 digit primes generated: 4
+
+    Number of 8-digit right-truncatable primes: 5
+    Total number of right-truncatable primes up to 8 digits: 83
+    Execution time: 2156.875 milliseconds
+    Execution time: 2156874.833 microseconds
+    Execution time: 2156874833.000 nanoseconds
 
 **Valid range for `<number_of_digits>`:** 1 to 19 to handle left-truncations. Only 83 right-trunctable values up to 8-digits long.
 
