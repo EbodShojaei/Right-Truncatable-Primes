@@ -7,9 +7,9 @@ cmake --build . --parallel
 sudo cmake --install .
 # Compile the test program
 cd ..
-gcc test.c -o test.out -L./primesieve -lprimesieve -Wl,-rpath,@loader_path/primesieve
+g++ test.cpp -o test.out -L./primesieve -lprimesieve -Wl,-rpath,@loader_path/primesieve
 # Run the test program
 ./test.out
 rm test.out
 # Compile the main program
-gcc count_primes.c -o count_primes.out -L./primesieve -lprimesieve -Wl,-rpath,@loader_path/primesieve
+g++ count_primes.cpp -o count_primes.out -L./primesieve -lprimesieve -Wl,-rpath,@loader_path/primesieve

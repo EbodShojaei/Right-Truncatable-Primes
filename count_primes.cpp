@@ -3,6 +3,8 @@
 
 // MIT License 2025
 
+#include <iostream>
+#include <chrono>       // For ns timing via cpp :3
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>     // For uint64_t
@@ -168,6 +170,9 @@ int count_right_trunc_primes(int digits)
         return -1;
     }
 
+    // Print the number of primes generated
+    printf("Number of %d digit primes generated: %zu\n", digits, all_primes_count); // NOTE: uncomment to see the number of primes
+
     // 2. Populate the hash table with ALL generated primes
     size_t initial_hash_table_size = (all_primes_count == 0) ? 17 : (all_primes_count * 2);
     hash_table_t *prime_hash_set = hash_table_create(initial_hash_table_size);
@@ -237,6 +242,9 @@ int count_right_trunc_primes(int digits)
 // Driver function to run the program
 int main(int argc, char *argv[])
 {
+    // Setup the timer
+    auto start_time = std::chrono::high_resolution_clock::now();
+
     if (argc != 2)
     {
         fprintf(stderr, "Usage: %s <number_of_digits>\n", argv[0]);
@@ -265,11 +273,10 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Error counting right-truncatable primes.\n");
         return 1;
     }
-    printf("Number of %d-digit right-truncatable primes: %d\n", digits, result);
 
     // Calculate total number of right-truncatable primes up to the specified number of digits
     unsigned long long total_count = result;
-    for (int i = 1; i < digits; ++i)
+    for (int i = digits - 1; i > 0; i--)
     {
         int count = count_right_trunc_primes(i);
         if (count < 0)
@@ -279,9 +286,21 @@ int main(int argc, char *argv[])
         }
         total_count += count;
     }
+    printf("\nNumber of %d-digit right-truncatable primes: %d\n", digits, result);
     printf("Total number of right-truncatable primes up to %d digits: %llu\n", digits, total_count);
     // NOTE: The total number of right-truncatable primes is not the same as the number of primes.
     // The total number of right-truncatable primes is the sum of all right-truncatable primes
+
+    // Print the execution time
+    auto end_time = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_time = end_time - start_time;
+    double time_diff = elapsed_time.count();
+    // Print the execution time in ms granularity
+    printf("Execution time: %.3f milliseconds\n", time_diff * 1000);
+    // Print the execution time in us granularity
+    printf("Execution time: %.3f microseconds\n", time_diff * 1000000);
+    // Print the execution time in ns granularity
+    printf("Execution time: %.3f nanoseconds\n", time_diff * 1000000000);
 
     return 0;
 }
