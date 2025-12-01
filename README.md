@@ -1,6 +1,6 @@
 # Right-Truncatable Prime Counter
 
-This C program efficiently calculates the number of right-truncatable primes for a given number of digits. It uses a custom hash table for fast primality lookups and the `primesieve` library for high-performance prime generation.
+This C program efficiently calculates the number of right-truncatable primes for a given number of digits. It uses the `primesieve` library for high-performance prime generation.
 
 A **right-truncatable prime** is a prime number that, when its rightmost digit is successively removed, results in a sequence of primes. For example, 739 is a right-truncatable prime because:
 
@@ -35,7 +35,6 @@ The largest is the 8-digit 73939133. All primes above 5 end with digit 1, 3, 7 o
 ## Features
 
 * **Efficient Prime Generation**: Leverages the `primesieve` library for rapid generation of prime numbers.
-* **Fast Primality Testing**: Employs a custom hash table for quick lookups of generated primes.
 * **Correct Right-Truncatable Logic**: Implements the standard definition, ensuring all successive truncations (by removing the rightmost digit) are prime.
 * **Flexible Digit Count**: Calculates right-truncatable primes for a user-specified number of digits.
 * **Error Handling**: Includes basic error handling for memory allocation and invalid input.
@@ -99,6 +98,10 @@ Expected output (will list the primes first, then the count):
 **Valid range for `<number_of_digits>`:** 1 to 19 to handle left-truncations. Only 83 right-trunctable values up to 8-digits long.
 
 -----
+
+## Resources
+
+Check out this [respository](https://github.com/EbodShojaei/Left-Truncatable-Primes) for calculating *left-truncatable* primes.
 
 ## License
 
