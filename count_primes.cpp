@@ -81,11 +81,6 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Usage: %s <number_of_digits>\n", argv[0]);
         return 1;
     }
-    // NOTE: The maximum number of digits is limited by the size of unsigned long long.
-    // The maximum value for unsigned long long is 2^64 - 1, which has 20 digits.
-    // However, the maximum number of digits this program handles is 19, to leave room for the left-truncation process.
-    // Ignore for right-truncatable primes.
-    // The largest right-truncatable primes is 8-digit long: 73939133 (sequence A024770 in the OEIS)
     
     int digits = atoi(argv[1]);
     if (digits < 1 || digits > 19)
