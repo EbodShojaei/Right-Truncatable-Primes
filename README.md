@@ -101,7 +101,9 @@ Expected output (will list the primes first, then the count):
 
 ## Resources
 
-Check out this [respository](https://github.com/EbodShojaei/Left-Truncatable-Primes) for calculating *left-truncatable* primes.
+- Check out this [respository](https://github.com/EbodShojaei/Left-Truncatable-Primes) for calculating *left-truncatable* primes.
+
+- Check out this [respository](https://github.com/EbodShojaei/Two-Sided-Primes) for calculating *two-sided* primes.
 
 ## License
 
