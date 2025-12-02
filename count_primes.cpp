@@ -1,7 +1,7 @@
 // Author   : Ebod Shojaei
 // Updated  : 30-11-2025
 
-// Optimized: Use unordered_set + bitset + single prime generation
+// Optimized: Use array + bitset
 #include <chrono>       // For ns timing via cpp :3
 #include <stdio.h>
 #include <stdlib.h>
